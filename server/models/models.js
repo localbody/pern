@@ -1,5 +1,4 @@
 const sequelize = require('../db')
-
 const {DataTypes} = require('sequelize')
 
 const User = sequelize.define(
@@ -36,14 +35,14 @@ const Device = sequelize.define(
 const Type = sequelize.define(
     'type', {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-        name: { type: DataTypes.STRING, allowNull: false},
+        name: { type: DataTypes.STRING, unique: true, allowNull: false},
     }
 );
 
 const Brand = sequelize.define(
     'brand', {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-        name: { type: DataTypes.STRING, allowNull: false},
+        name: { type: DataTypes.STRING, unique:true, allowNull: false},
     }
 );
 
