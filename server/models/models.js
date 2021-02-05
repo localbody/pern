@@ -1,5 +1,6 @@
-const sequelize = require('../db')
-const {DataTypes} = require('sequelize')
+const sequelize = require('../db');
+const {DataTypes} = require('sequelize');
+
 
 const User = sequelize.define(
     'user', {
@@ -85,7 +86,8 @@ Device.belongsTo(Brand);
 Device.hasMany(Rating);
 Rating.belongsTo(Device);
 
-Device.hasMany(DeviceInfo);
+// { as: название, которое будет у массива характеристик }
+Device.hasMany(DeviceInfo, { as: 'info' });
 DeviceInfo.belongsTo(Device);
 
 Type.belongsToMany(Brand, { through: TypeBrand });
