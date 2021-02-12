@@ -52,7 +52,10 @@ class UserController {
 
     async check(req, res, next) {
         
-        res.json({message: 'Test!'});
+        const token = generateJWT(req.user.id, req.user.email, req.user.rile);
+
+        return res.json({token});
+        
     }
 
 }
